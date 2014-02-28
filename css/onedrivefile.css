@@ -1,0 +1,80 @@
+/**
+ * @version 1.0.0
+ * @package OneDrive
+ * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
+ * @license http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+ * @author Piotr Moæko
+ */
+
+.onedrivefile-error {
+	color: #a80000;
+}
+
+img.onedrivefile-photo.debug {
+	border: 1px dotted #f00 !important;
+	display: inline-block;
+}
+
+.onedrivefile .size {
+	font-size: 90%;
+	color: #666;
+}
+.onedrivefile-doc .icon, .onedrivefile-docx .icon, .onedrivefile-odt .icon, 
+.onedrivefile-ppt .icon, .onedrivefile-pptx .icon, .onedrivefile-odp .icon, 
+.onedrivefile-xls .icon, .onedrivefile-xlsx .icon, .onedrivefile-ods .icon, 
+.onedrivefile-pdf .icon, 
+.onedrivefile-rtf .icon, 
+.onedrivefile-txt .icon, 
+.onedrivefile-zip .icon,
+.onedrivefile-jpg .icon, .onedrivefile-jpeg .icon, .onedrivefile-bmp .icon, .onedrivefile-png .icon, .onedrivefile-gif .ico, .onedrivefile-tif .icon {
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	margin: 0 4px;
+	vertical-align: middle;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+.onedrivefile-doc .icon {
+	background-image: url(https://p.sfx.ms/images/icons/tiny/doc.png);
+}
+.onedrivefile-docx .icon {
+	background-image: url(https://p.sfx.ms/images/icons/tiny/docx.png);
+}
+.onedrivefile-ppt .icon {
+	background-image: url(https://p.sfx.ms/images/icons/tiny/ppt.png);
+}
+.onedrivefile-pptx .icon {
+	background-image: url(https://p.sfx.ms/images/icons/tiny/pptx.png);
+}
+.onedrivefile-xls .icon {
+	background-image: url(https://p.sfx.ms/images/icons/tiny/xls.png);
+}
+.onedrivefile-xlsx .icon {
+	background-image: url(https://p.sfx.ms/images/icons/tiny/xlsx.png);
+}
+.onedrivefile-odt .icon {
+	background-image: url(https://p.sfx.ms/images/icons/tiny/odt.png);
+}
+.onedrivefile-odp .icon {
+	background-image: url(https://p.sfx.ms/images/icons/tiny/odp.png);
+}
+.onedrivefile-ods .icon {
+	background-image: url(https://p.sfx.ms/images/icons/tiny/ods.png);
+}
+.onedrivefile-pdf .icon {
+	background-image: url(https://p.sfx.ms/images/icons/tiny/pdf.png);
+}
+.onedrivefile-rtf .icon {
+	background-image: url(https://p.sfx.ms/images/icons/tiny/rtf.png);
+}
+.onedrivefile-txt .icon {
+	background-image: url(https://p.sfx.ms/images/icons/tiny/txt.png);
+}
+.onedrivefile-zip .icon {
+	background-image: url(https://p.sfx.ms/images/icons/tiny/zip.png);
+}
+.onedrivefile-jpg .icon, .onedrivefile-jpeg .icon, .onedrivefile-bmp .icon, .onedrivefile-png .icon, .onedrivefile-gif .ico, .onedrivefile-tif .icon {
+	background-image: url(https://p.sfx.ms/images/icons/tiny/photo.png);
+}
