@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: gallery, cloud storage, onedrive, microsoft
 Requires at least: 2.8.0
 Tested up to: 3.8.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -42,6 +42,11 @@ This plugin is brought to you thanks to new Microsoft attiude towards Open Sourc
 = Translations =
 
 English
+
+
+= Requirements =
+
+PHP 5.2+
 
 
 == Installation ==
@@ -88,6 +93,9 @@ Remember to save post before using OneDrive buttons or at least before reloading
 
 = 1.0.0 =
 * First release
+
+= 1.0.1 =
+* Backward compatibility with PHP 5.2
 
 == Upgrade Notice ==
 

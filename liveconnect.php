@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.0
+ * @version 1.0.1
  * @package OneDrive
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
@@ -315,15 +315,15 @@ class LiveConnectClient
 		
 		$this->log(__METHOD__.'. Resource: '.$resource_id);
 		
-		if (!isset(static::$access[$resource_id]))
+		if (!isset(self::$access[$resource_id]))
 		{
 			if (!$this->getOption('storetoken')) return null;
 			
 			$sql = $wpdb->prepare('SELECT `access_id` FROM `'.$wpdb->prefix.'onedrive_storage` WHERE `resource_id` LIKE %s', like_escape($resource_id));
-			static::$access[$resource_id] = (int)$wpdb->get_var($sql);
+			self::$access[$resource_id] = (int)$wpdb->get_var($sql);
 		}
 		
-		return static::$access[$resource_id];
+		return self::$access[$resource_id];
 	}
 	
 	
@@ -351,12 +351,12 @@ class LiveConnectClient
 				$value['expires_in'] = $value['expires'];
 				unset($value['expires']);
 			}
-			static::$token[$this->access_id] = $value;
+			self::$token[$this->access_id] = $value;
 		}
 		
 		if ($process)
 		{
-			$token = static::$token[$this->access_id];
+			$token = self::$token[$this->access_id];
 			
 			if ($error === false AND is_array($token) AND array_key_exists('refresh_token', $token))
 			{
@@ -409,13 +409,13 @@ class LiveConnectClient
 	{
 		$this->log(__METHOD__);
 		
-		$token = isset(static::$token[$this->access_id]) ? 
-					static::$token[$this->access_id] : 
-					(isset(static::$token[0]) ? static::$token[0] : null);
+		$token = isset(self::$token[$this->access_id]) ? 
+					self::$token[$this->access_id] : 
+					(isset(self::$token[0]) ? self::$token[0] : null);
 		
 		if (!$token AND $this->loadToken())
 		{
-			$token = static::$token[$this->access_id];
+			$token = self::$token[$this->access_id];
 		}
 		
 		return $token;
