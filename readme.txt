@@ -56,7 +56,7 @@ PHP 5.2+
 1. Create **Windows Live ID** account for [OneDrive](https://onedrive.live.com/) if you do not have already
 1. **Register your site** in [Windows Live application management](https://account.live.com/developers/applications/index) that WordPress could connect to your OneDrive.
 Remember to set your site URL as **Redirect domain** and **Mobile client app: No**, **Enhanced redirection security: Disabled**.
-Read how to get your Client ID.
+[Read how to get your Client ID](http://msdn.microsoft.com/library/cc287659.aspx).
 1. Go to **plugin configuration** panel and set all details from **Windows Live application management**.
 1. Disable pop-up windows blocking, because OneDrive would display login and permissions screen in a new pop-up window.
 1. Edit post and use one of new blue buttons in editor.
