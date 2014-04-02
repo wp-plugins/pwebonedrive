@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.0
+ * @version 1.0.2
  * @package OneDrive
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
@@ -114,7 +114,8 @@ function pweb_onedrive_conf()
 							<a target="_blank" href="https://account.live.com/developers/applications/index"><?php _e('Windows Live application management', 'pwebonedrive'); ?></a>.<br>
 							<?php _e('Remember to set', 'pwebonedrive'); ?> <strong><?php _e('Redirect domain', 'pwebonedrive'); ?></strong>: 
 							<script>document.write('<a href="'+document.location.protocol+'//'+document.location.host+'" target="_blank">'+document.location.protocol+'//'+document.location.host+'<'+'/a>')</script> 
-							<?php _e('and', 'pwebonedrive'); ?> <strong><?php _e('Mobile client app: No', 'pwebonedrive'); ?></strong>.<br>
+							<?php _e('and', 'pwebonedrive'); ?> <strong><?php _e('Mobile client app: No', 'pwebonedrive'); ?></strong>,
+							<strong><?php _e('Enhanced redirection security: Disabled', 'pwebonedrive'); ?></strong>.<br>
 							<?php _e('Read how to', 'pwebonedrive'); ?> <a target="_blank" href="http://msdn.microsoft.com/library/cc287659.aspx"><?php _e('get your Client ID', 'pwebonedrive'); ?></a>.
 						</p>
 					</td>

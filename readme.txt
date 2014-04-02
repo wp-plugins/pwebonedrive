@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: gallery, cloud storage, onedrive, microsoft
 Requires at least: 2.8.0
 Tested up to: 3.8.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -55,7 +55,7 @@ PHP 5.2+
 1. **Activate the plugin** through the Plugins menu in WordPress.
 1. Create **Windows Live ID** account for [OneDrive](https://onedrive.live.com/) if you do not have already
 1. **Register your site** in [Windows Live application management](https://account.live.com/developers/applications/index) that WordPress could connect to your OneDrive.
-Remember to set your site URL as **Redirect domain** and **Mobile client app: No**.
+Remember to set your site URL as **Redirect domain** and **Mobile client app: No**, **Enhanced redirection security: Disabled**.
 Read how to get your Client ID.
 1. Go to **plugin configuration** panel and set all details from **Windows Live application management**.
 1. Disable pop-up windows blocking, because OneDrive would display login and permissions screen in a new pop-up window.
@@ -78,6 +78,12 @@ Use OneDrive emergency exit button to close all blank layers.
 
 Remember to save post before using OneDrive buttons or at least before reloading page.
 
+= Error in Microsoft popup =
+
+`We're unable to complete your request. Microsoft account is expirencing technical problems. Please try again later.`
+and in URL of this popup there is error message:
+`The provided value for the input parameter 'redirect_uri' is not valid. The expected value is 'https://login.live.com/oauth20_desktop.srf' or a URL which matches the redirect URI registered for this client application`
+then go back to Windows Live application management and set **Enhanced redirection security: Disabled**
 
 == Screenshots ==
 
@@ -96,6 +102,9 @@ Remember to save post before using OneDrive buttons or at least before reloading
 
 = 1.0.1 =
 * Backward compatibility with PHP 5.2
+
+= 1.0.2 =
+* Inform about new option on Live Connect app management
 
 == Upgrade Notice ==
 
