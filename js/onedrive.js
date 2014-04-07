@@ -1,5 +1,5 @@
 /**
- * @version 1.0.0
+ * @version 1.0.3
  * @package OneDrive
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
@@ -249,7 +249,7 @@ var PWebOneDrive = {
 	resetCookie: function()
 	{
     	var exdate = new Date();
-    	document.cookie = "wl_auth=;domain=."+document.location.host+";path=/;expires="+exdate.toUTCString()-1;
+    	document.cookie = "wl_auth=;domain="+document.location.host+";path=/;expires="+exdate.toUTCString()-1;
     },
 	
 	addToStore: function(id)

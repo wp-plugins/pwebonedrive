@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.1
+ * @version 1.0.3
  * @package OneDrive
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
@@ -36,7 +36,9 @@ class LiveConnectClient
 			'userefresh' 	=> true,
 			'storetoken' 	=> true,
 			'usecookie'		=> true,
-			'cookiename'	=> 'wl_auth'
+			'cookiename'	=> 'wl_auth',
+			'timeout' 		=> 25,
+			'sslverify' 	=> false
 		);
 		
 		if (is_array($options))
@@ -118,7 +120,7 @@ class LiveConnectClient
 			$data['client_id'] 		= $this->getOption('clientid');
 			$data['client_secret'] 	= $this->getOption('clientsecret');
 			
-			$response = $this->http->post($this->getOption('tokenurl'), array('body' => $data));
+			$response = $this->http->post($this->getOption('tokenurl'), array('body' => $data, 'timeout' => $this->getOption('timeout'), 'sslverify' => $this->getOption('sslverify')));
 
 			if (is_wp_error($response))
 			{
@@ -391,7 +393,7 @@ class LiveConnectClient
 
 				if (!headers_sent())
 				{
-					setrawcookie($this->getOption('cookiename'), $this->buildQueryString($cookieValues), 0, '/', $_SERVER['SERVER_NAME']);
+					setrawcookie($this->getOption('cookiename'), $this->buildQueryString($cookieValues), 0, '/', $_SERVER['HTTP_HOST']);
 				}
 			}
 		}
@@ -565,7 +567,7 @@ class LiveConnectClient
 		$data['client_id'] 		= $this->getOption('clientid');
 		$data['client_secret'] 	= $this->getOption('clientsecret');
 		
-		$response = $this->http->post($this->getOption('tokenurl'), array('body' => $data));
+		$response = $this->http->post($this->getOption('tokenurl'), array('body' => $data, 'timeout' => $this->getOption('timeout'), 'sslverify' => $this->getOption('sslverify')));
 
 		if (is_wp_error($response))
 		{
@@ -606,7 +608,7 @@ class LiveConnectClient
 	 *
 	 * @return  WP_Error|array The response or WP_Error on failure.
 	 */
-	public function query($url = null, $data = null, $headers = array(), $method = 'get')
+	public function query($url = null, $data = null, $headers = array(), $method = 'get', $timeout = null)
 	{
 		$this->log(__METHOD__.'. URL: '.$url.' '.print_r($data, true));
 		
@@ -642,7 +644,9 @@ class LiveConnectClient
 		
 		$args = array(
 			'method' => $method,
-			'headers' => $headers
+			'headers' => $headers,
+			'timeout' => $timeout > 0 ? $timeout : $this->getOption('timeout'),
+			'sslverify' => $this->getOption('sslverify')
 		);
 
 		switch ($method)
@@ -708,7 +712,7 @@ class LiveConnectClient
 	{
 		$this->log(__METHOD__.'. URL: '.$url);
 		
-		$response = $this->http->get($url, array('headers' => $headers));
+		$response = $this->http->get($url, array('headers' => $headers, 'timeout' => $this->getOption('timeout'), 'sslverify' => $this->getOption('sslverify')));
 		
 		if (is_wp_error($response))
 		{

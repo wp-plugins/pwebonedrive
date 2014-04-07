@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: gallery, cloud storage, onedrive, microsoft
 Requires at least: 2.8.0
 Tested up to: 3.8.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -97,14 +97,18 @@ then go back to Windows Live application management and set **Enhanced redirecti
 
 == Changelog ==
 
-= 1.0.0 =
-* First release
+= 1.0.3 / 07-04-2014 =
+* Fixed cookie domain name
+* Fixed request timeout and SSL verify
 
-= 1.0.1 =
+= 1.0.2 / 02-04-2014 =
+* Inform about new option on Live Connect app management
+
+= 1.0.1 / 31-03-2014 =
 * Backward compatibility with PHP 5.2
 
-= 1.0.2 =
-* Inform about new option on Live Connect app management
+= 1.0.0 / 28-02-2014 =
+* First release
 
 == Upgrade Notice ==
 
