@@ -39,6 +39,10 @@ This plugin is brought to you thanks to new Microsoft attiude towards Open Sourc
 ![Inspired by Microsoft Openness](http://www.perfect-web.co/media/com_skydrive/images/MSFT_logo.png)
 
 
+= Like our software on Microsoft Opennes Ideas =
+[Vote for this plugin on Microsoft Opennes Ideas](http://ideas.opennessatcee.com/pl/idea/772f24a23590d7b206724dae1e698edc07048cdd)
+
+
 = Translations =
 
 English
