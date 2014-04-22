@@ -45,7 +45,7 @@ This plugin is brought to you thanks to new Microsoft attiude towards Open Sourc
 
 = Translations =
 
-English, Serbian (by Ogi Djuraskovic), Spanish (by Ogi Djuraskovic)
+English, Serbian and Spanish by [Ogi Djuraskovic](http://firstsiteguide.com)
 
 
 = Requirements =
