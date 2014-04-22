@@ -45,7 +45,7 @@ This plugin is brought to you thanks to new Microsoft attiude towards Open Sourc
 
 = Translations =
 
-English, Serbian (by Ogi Djuraskovic), Spanish (by Ogi Djuraskovic
+English, Serbian (by Ogi Djuraskovic), Spanish (by Ogi Djuraskovic)
 
 
 = Requirements =
@@ -100,6 +100,9 @@ then go back to Windows Live application management and set **Enhanced redirecti
 7. Configuration
 
 == Changelog ==
+
+= 1.0.4 / 22-04-2014 =
+* Added Serbian and Spanish translations by Ogi Djuraskovic
 
 = 1.0.3 / 07-04-2014 =
 * Fixed cookie domain name
