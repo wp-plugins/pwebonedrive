@@ -3,8 +3,8 @@ Contributors: perfect-web
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CDDZ6G6LDV4LG
 Tags: gallery, cloud storage, onedrive, microsoft
 Requires at least: 2.8.0
-Tested up to: 3.8.2
-Stable tag: 1.0.3
+Tested up to: 3.9.0
+Stable tag: 1.0.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -45,7 +45,7 @@ This plugin is brought to you thanks to new Microsoft attiude towards Open Sourc
 
 = Translations =
 
-English
+English, Serbian (by Ogi Djuraskovic), Spanish (by Ogi Djuraskovic
 
 
 = Requirements =
