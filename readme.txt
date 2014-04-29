@@ -84,10 +84,27 @@ Remember to save post before using OneDrive buttons or at least before reloading
 
 = Error in Microsoft popup =
 
-`We're unable to complete your request. Microsoft account is expirencing technical problems. Please try again later.`
-and in URL of this popup there is error message:
-`The provided value for the input parameter 'redirect_uri' is not valid. The expected value is 'https://login.live.com/oauth20_desktop.srf' or a URL which matches the redirect URI registered for this client application`
-then go back to Windows Live application management and set **Enhanced redirection security: Disabled**
+If you got message: *Microsoft account is experiencing technical problems* in popup window then check **error_description** of URL in address bar.
+
+If you have following error description:
+*The provided value for the input parameter 'redirect_uri' is not valid. The expected value is 'https://login.live.com/oauth20_desktop.srf' or a URL which matches the redirect URI registered for this client application*
+then go to Windows Live application management and set in your application **Enhanced redirection security: Disabled**.
+
+If you have other error description then send it to our support.
+
+= Debugging =
+
+Enable debug in WordPress [read how to](https://codex.wordpress.org/Debugging_in_WordPress).
+
+Go to Post editor. 
+Remove **wl_auth cookie**. 
+Reload page. 
+Try to use OneDrive button again. 
+You will see some alerts with debug informations.
+
+Check also `/wp-content/debug.log` file. Read only lines with *pweb_onedrive* or *LiveConnectClient*.
+If you would not find there any error message then send this log file to our support.
+
 
 == Screenshots ==
 
