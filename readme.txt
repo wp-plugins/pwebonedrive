@@ -24,7 +24,8 @@ OneDrive Gallery & File plugin has been inspired by Microsoft. It integrates Wor
 * Displays a file from OneDrive as link for download with icon and size.
 * Displays a photo inside post content.
 * Use prettyPhoto jQuery for Lightbox effect.
-* Insert short code into post with WYSIWYG editor button
+* Insert short code into post with WYSIWYG editor button.
+* Compatible with **Azure - Microsoft's Cloud Platform**.
 
 
 = Front-end demo =
