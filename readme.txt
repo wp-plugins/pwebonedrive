@@ -1,9 +1,9 @@
 === Perfect OneDrive Gallery & File ===
 Contributors: perfect-web
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CDDZ6G6LDV4LG
-Tags: gallery, cloud storage, onedrive, microsoft
+Tags: onedrive, one drive, skydrive, microsoft, gallery, download, cloud storage
 Requires at least: 2.8.0
-Tested up to: 3.9.0
+Tested up to: 3.9.1
 Stable tag: 1.0.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -38,10 +38,6 @@ OneDrive Gallery & File plugin has been inspired by Microsoft. It integrates Wor
 This plugin is brought to you thanks to new Microsoft attiude towards Open Source. Due to Microsoft help and support we were able to create such a bridge between one of Mirosoft leading projects and WordPress. We hope that you will find this plugin useful.
 
 ![Inspired by Microsoft Openness](http://www.perfect-web.co/media/com_skydrive/images/MSFT_logo.png)
-
-
-= Like our software on Microsoft Opennes Ideas =
-[Vote for this plugin on Microsoft Opennes Ideas](http://ideas.opennessatcee.com/pl/idea/772f24a23590d7b206724dae1e698edc07048cdd)
 
 
 = Translations =
