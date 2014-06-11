@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.3
+ * @version 1.0.5
  * @package OneDrive
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
@@ -389,7 +389,7 @@ class LiveConnectClient
 					unset($cookieValues['error'], $cookieValues['error_description']);
 				}
 				
-				$this->log(__METHOD__.'. Set cookie: '.print_r($cookieValues, true));
+				$this->log(__METHOD__.'. Set cookie: '.print_r($cookieValues, true)."\r\n".'Cookie domain: '.$_SERVER['HTTP_HOST']);
 
 				if (!headers_sent())
 				{

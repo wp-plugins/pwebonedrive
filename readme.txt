@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: onedrive, one drive, skydrive, microsoft, gallery, download, cloud storage
 Requires at least: 2.8.0
 Tested up to: 3.9.1
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -114,6 +114,9 @@ If you would not find there any error message then send this log file to our sup
 7. Configuration
 
 == Changelog ==
+
+= 1.0.5 / 11-06-2014 =
+* Fixed hook where wp_register_style is used
 
 = 1.0.4 / 22-04-2014 =
 * Added Serbian and Spanish translations by Ogi Djuraskovic
