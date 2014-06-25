@@ -12,6 +12,9 @@ Share easily your photos and files stored on Microsoft OneDrive. You can display
 
 == Description ==
 
+**Warning! OneDrvie plugin is not working with Windwos Live Applications created after 1st of June 2014. We are waiting for update of Microsoft OneDrive API documentation to make necessary changes in our software.**
+
+
 ![OneDrive](http://www.perfect-web.co/media/com_skydrive/images/onedrive-logo.png)
 
 OneDrive Gallery & File plugin has been inspired by Microsoft. It integrates WordPress with OneDrive (SkyDrive). This plugin displays a photo gallery directly from folder on OneDrive. Each time you add more photos on your OneDrive they automatically apear on your WordPress website. You can also insert a single photo or a download link with a file form OneDrive. Then you can edit your file on OneDrive and be sure that documents on you WordPress website are always up to date.
@@ -66,6 +69,10 @@ Remember to set your site URL as **Redirect domain** and **Mobile client app: No
 == Frequently Asked Questions ==
 
 [Visit full documentation page](http://www.perfect-web.co/wordpress/microsoft-onedrive-gallery-file/documentation)
+
+
+**Warning! OneDrvie plugin is not working with Windwos Live Applications created after 1st of June 2014. We are waiting for update of Microsoft OneDrive API documentation to make necessary changes in our software.**
+
 
 = First use of OneDrive buttons =
 
