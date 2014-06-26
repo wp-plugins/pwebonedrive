@@ -1,5 +1,5 @@
 /**
- * @version 1.0.3
+ * @version 1.1.0
  * @package OneDrive
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
@@ -12,6 +12,7 @@ var PWebOneDrive = {
 		editor: "",
 		client_id: null,
 		task_url: null,
+		redirect_url: null,
 		spinner_url: null,
 		token: false,
 		debug: 0 // 0 - disabled, 1 - alerts, 2 - only console
@@ -49,7 +50,7 @@ var PWebOneDrive = {
 		{
 			WL.init({
 				client_id: this.options.client_id, 
-				redirect_uri: this.options.task_url + "callback", 
+				redirect_uri: this.options.redirect_url, 
 				response_type: "code", 
 				logging: this.options.debug > 0 
 			});

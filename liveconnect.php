@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.5
+ * @version 1.1.0
  * @package OneDrive
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
@@ -32,7 +32,7 @@ class LiveConnectClient
 			'authmethod' 	=> 'get',
 			'authurl' 		=> 'https://login.live.com/oauth20_token.srf', 
 			'tokenurl' 		=> 'https://login.live.com/oauth20_token.srf', 
-			'redirecturi' 	=> admin_url( 'admin-ajax.php?action=pweb_onedrive_callback' ), 
+			'redirecturi' 	=> plugins_url( 'callback.php', __FILE__ ), 
 			'userefresh' 	=> true,
 			'storetoken' 	=> true,
 			'usecookie'		=> true,
@@ -47,12 +47,12 @@ class LiveConnectClient
 		$this->http = new WP_Http;
 	}
 	
-	public static function getInstance()
+	public static function getInstance($options = null)
 	{
 		// Automatically instantiate the singleton object if not already done.
 		if (empty(self::$instance))
 		{
-			self::setInstance(new LiveConnectClient);
+			self::setInstance(new LiveConnectClient($options));
 		}
 		return self::$instance;
 	}

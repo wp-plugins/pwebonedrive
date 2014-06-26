@@ -4,16 +4,13 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: onedrive, one drive, skydrive, microsoft, gallery, download, cloud storage
 Requires at least: 2.8.0
 Tested up to: 3.9.1
-Stable tag: 1.0.5
+Stable tag: 1.1.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Share easily your photos and files stored on Microsoft OneDrive. You can display a gallery with your photos or a link to a file for download.
 
 == Description ==
-
-**Warning! OneDrvie plugin is not working with Windwos Live Applications created after 1st of June 2014. We are waiting for update of Microsoft OneDrive API documentation to make necessary changes in our software.**
-
 
 ![OneDrive](http://www.perfect-web.co/media/com_skydrive/images/onedrive-logo.png)
 
@@ -59,7 +56,9 @@ PHP 5.2+
 1. **Activate the plugin** through the Plugins menu in WordPress.
 1. Create **Windows Live ID** account for [OneDrive](https://onedrive.live.com/) if you do not have already
 1. **Register your site** in [Windows Live application management](https://account.live.com/developers/applications/index) that WordPress could connect to your OneDrive.
-Remember to set your site URL as **Redirect domain** and **Mobile client app: No**, **Enhanced redirection security: Disabled**.
+Remember to set **Redirect URL** *http://yourdomain.com/wp-content/plugins/pwebonedrive/callback.php*
+and **Mobile client app: No** 
+and if available **Enhanced redirection security: Enabled** (for applications created before June 2014).
 [Read how to get your Client ID](http://msdn.microsoft.com/library/cc287659.aspx).
 1. Go to **plugin configuration** panel and set all details from **Windows Live application management**.
 1. Disable pop-up windows blocking, because OneDrive would display login and permissions screen in a new pop-up window.
@@ -69,10 +68,6 @@ Remember to set your site URL as **Redirect domain** and **Mobile client app: No
 == Frequently Asked Questions ==
 
 [Visit full documentation page](http://www.perfect-web.co/wordpress/microsoft-onedrive-gallery-file/documentation)
-
-
-**Warning! OneDrvie plugin is not working with Windwos Live Applications created after 1st of June 2014. We are waiting for update of Microsoft OneDrive API documentation to make necessary changes in our software.**
-
 
 = First use of OneDrive buttons =
 
@@ -88,11 +83,17 @@ Remember to save post before using OneDrive buttons or at least before reloading
 
 = Error in Microsoft popup =
 
+Since plugin version 1.1.0 there is a new Redirect URL. Make sure you have updated it! You can also enable **Enhanced redirection security** in old Windows Live applications - created before June 2014.
+
 If you got message: *Microsoft account is experiencing technical problems* in popup window then check **error_description** of URL in address bar.
 
 If you have following error description:
 *The provided value for the input parameter 'redirect_uri' is not valid. The expected value is 'https://login.live.com/oauth20_desktop.srf' or a URL which matches the redirect URI registered for this client application*
-then go to Windows Live application management and set in your application **Enhanced redirection security: Disabled**.
+then make sure that you have plugin version 1.1.0 or newer 
+and you have set the same **Redirect URL** in Windows Live application management as in plugin configuration.
+
+Make sure that if you have set in Windows Live application management **redirect URL with www** then you access back-end and front-end site also with www otherwise it would not work.
+If it is possible to access your site with and without www then you should correct it in .htaccess file and allow only one way.
 
 If you have other error description then send it to our support.
 
@@ -122,6 +123,9 @@ If you would not find there any error message then send this log file to our sup
 
 == Changelog ==
 
+= 1.1.0 / 26-06-2014 =
+* Fixed redirect URL for new Windows Live applications
+
 = 1.0.5 / 11-06-2014 =
 * Fixed hook where wp_register_style is used
 
@@ -143,4 +147,5 @@ If you would not find there any error message then send this log file to our sup
 
 == Upgrade Notice ==
 
-N/A
+= 1.1.0 =
+New redirect URL for Windows Live applications! See configuration of plugin after upgrade.

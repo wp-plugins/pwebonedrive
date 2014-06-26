@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.2
+ * @version 1.1.0
  * @package OneDrive
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
@@ -112,10 +112,10 @@ function pweb_onedrive_conf()
 						<p>
 							<?php _e('Register your site in', 'pwebonedrive'); ?>
 							<a target="_blank" href="https://account.live.com/developers/applications/index"><?php _e('Windows Live application management', 'pwebonedrive'); ?></a>.<br>
-							<?php _e('Remember to set', 'pwebonedrive'); ?> <strong><?php _e('Redirect domain', 'pwebonedrive'); ?></strong>: 
-							<script>document.write('<a href="'+document.location.protocol+'//'+document.location.host+'" target="_blank">'+document.location.protocol+'//'+document.location.host+'<'+'/a>')</script> 
-							<?php _e('and', 'pwebonedrive'); ?> <strong><?php _e('Mobile client app: No', 'pwebonedrive'); ?></strong>,
-							<strong><?php _e('Enhanced redirection security: Disabled', 'pwebonedrive'); ?></strong>.<br>
+							<?php _e('Remember to set', 'pwebonedrive'); ?> <strong><?php _e('Redirect URL', 'pwebonedrive'); ?></strong>: 
+							<a href="<?php echo plugins_url( 'callback.php', __FILE__ ); ?>" target="_blank"><?php echo plugins_url( 'callback.php', __FILE__ ); ?></a><br>
+							<?php _e('and', 'pwebonedrive'); ?> <strong><?php _e('Mobile client app: No', 'pwebonedrive'); ?></strong><br>
+							<?php _e('and if available', 'pwebonedrive'); ?> <strong><?php _e('Enhanced redirection security: Enabled', 'pwebonedrive'); ?></strong> <?php _e('(for applications created before June 2014)', 'pwebonedrive'); ?><br>
 							<?php _e('Read how to', 'pwebonedrive'); ?> <a target="_blank" href="http://msdn.microsoft.com/library/cc287659.aspx"><?php _e('get your Client ID', 'pwebonedrive'); ?></a>.
 						</p>
 					</td>
@@ -162,21 +162,6 @@ function pweb_onedrive_conf()
 <?php
 }
 
-
-add_action('wp_ajax_pweb_onedrive_callback', 'pweb_onedrive_ajax_callback');
-add_action('wp_ajax_nopriv_pweb_onedrive_callback', 'pweb_onedrive_ajax_callback');
-
-function pweb_onedrive_ajax_callback() 
-{
-	$client = LiveConnectClient::getInstance();
-	$client->log(__FUNCTION__);
-	
-	echo $client->handlePageRequest();
-	
-	$client->log(__FUNCTION__.'. Die');
-	
-	die();
-}
 
 function pweb_onedrive_get_version() {
     

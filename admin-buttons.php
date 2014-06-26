@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.0
+ * @version 1.1.0
  * @package OneDrive
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
@@ -55,6 +55,7 @@ function pweb_onedrive_buttons_script()
 	$options = array(
 		'client_id:"'.get_option('pweb_onedrive_client_id').'"',
 		'task_url:"'.admin_url( 'admin-ajax.php?action=pweb_onedrive_' ).'"',
+		'redirect_url:"'.plugins_url( 'callback.php', __FILE__ ).'"',
 		'spinner_url:"'.includes_url().'images/wpspin-2x.gif"'
 	);
 	if (PWEB_ONEDRIVE_DEBUG) $options[] = 'debug:1';

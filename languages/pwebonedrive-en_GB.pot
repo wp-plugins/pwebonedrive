@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Perfect OneDrive\n"
-"POT-Creation-Date: 2014-04-15 15:52+0100\n"
-"PO-Revision-Date: 2014-04-15 15:55+0100\n"
+"POT-Creation-Date: 2014-06-26 22:37+0100\n"
+"PO-Revision-Date: 2014-06-26 22:38+0100\n"
 "Last-Translator: Piotr Moćko <p.mocko@perfect-web.co>\n"
 "Language-Team: Perfect-Web.co <office@perfect-web.co>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.6.5\n"
 "X-Poedit-Basepath: ../\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -36,11 +36,11 @@ msgstr ""
 msgid "Perfect OneDrive Gallery: select only folder with photos, not a file!"
 msgstr ""
 
-#: admin-buttons.php:105
+#: admin-buttons.php:106
 msgid "Error while saving selected resource. Try again."
 msgstr ""
 
-#: admin-buttons.php:107
+#: admin-buttons.php:108
 msgid ""
 "Access token for current OneDrive session was not saved. Logout from "
 "OneDrive and try again."
@@ -117,7 +117,7 @@ msgid "Remember to set"
 msgstr ""
 
 #: admin.php:115
-msgid "Redirect domain"
+msgid "Redirect URL"
 msgstr ""
 
 #: admin.php:117
@@ -129,7 +129,15 @@ msgid "Mobile client app: No"
 msgstr ""
 
 #: admin.php:118
-msgid "Enhanced redirection security: Disabled"
+msgid "and if available"
+msgstr ""
+
+#: admin.php:118
+msgid "Enhanced redirection security: Enabled"
+msgstr ""
+
+#: admin.php:118
+msgid "(for applications created before June 2014)"
 msgstr ""
 
 #: admin.php:119
