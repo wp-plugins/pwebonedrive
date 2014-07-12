@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.1.0
+ * @version 1.2.0
  * @package OneDrive
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
@@ -17,7 +17,7 @@ function pweb_onedrive_admin_menu()
 	add_submenu_page('plugins.php', __('Perfect OneDrive Gallery & File', 'pwebonedrive'), __('Perfect OneDrive', 'pwebonedrive'), 'manage_options', 'pwebonedrive-config', 'pweb_onedrive_conf');
 }
 
-add_filter('plugin_action_links', 'pweb_onedrive_plugin_action_links', 10, 2);
+add_filter( 'plugin_action_links', 'pweb_onedrive_plugin_action_links', 10, 2 );
 function pweb_onedrive_plugin_action_links( $links, $file ) 
 {
 	if ( $file == plugin_basename( dirname(__FILE__).'/pwebonedrive.php' ) ) {
@@ -27,6 +27,18 @@ function pweb_onedrive_plugin_action_links( $links, $file )
 	return $links;
 }
 
+add_action( 'admin_notices', 'pweb_onedrive_admin_notices' );
+function pweb_onedrive_admin_notices() 
+{
+	if ((!isset($_GET['page']) OR $_GET['page'] !== 'pwebonedrive-config') AND LiveConnectClient::getRedirectUri() !== get_option('pweb_onedrive_redirect_uri'))
+	{
+	?>
+    <div class="error" id="pwebonedrive_redirect_uri_notice">
+        <p><?php printf(__( 'Redirect URL for Perfect OneDrive Gallery & File has changed. You have to update your Windows Live Application. Go to plugin %ssettings%s and save it to dismiss this notice.', 'pwebonedrive' ), '<a href="' . admin_url( 'admin.php?page=pwebonedrive-config' ) . '">', '</a>'); ?></p>
+    </div>
+    <?php
+	}
+}
 
 // displays the page content for the settings submenu
 function pweb_onedrive_conf() 
@@ -34,19 +46,25 @@ function pweb_onedrive_conf()
     global $wp_version;
     
     //must check that the user has the required capability 
-    if (!current_user_can('manage_options'))
-    {
+    if (!current_user_can('manage_options')) {
 		wp_die( __('You do not have sufficient permissions to access this page.') );
     }
+	
+	// cleanup plugin after update
+	if (is_file( dirname(__FILE__).'/do.php' )) {
+		@unlink( dirname(__FILE__).'/do.php' );
+	}
+	
+	wp_enqueue_script('jquery');
 
     // See if the user has posted us some information
     // If they did, this hidden field will be set to 'Y'
     if (isset($_POST['submitConfig'])) {
-        
+	
 		$errors = array();
 		
-		if ( isset( $_POST['client_id'] ) AND $_POST['client_id'] )
-		{
+		if ( isset( $_POST['client_id'] ) AND $_POST['client_id'] ) {
+		
 			if (preg_match('/^[0-9a-zA-Z]{16}$/', $_POST['client_id'])) {
 				update_option( 'pweb_onedrive_client_id', preg_replace('/[^0-9a-zA-Z]$/', '', $_POST['client_id']) );
 			}
@@ -64,6 +82,8 @@ function pweb_onedrive_conf()
 		else {
 			$errors[] = __('Missing Client secret.', 'pwebonedrive' );
 		}
+		
+		update_option('pweb_onedrive_redirect_uri', LiveConnectClient::getRedirectUri());
 
 		if (count($errors)) {
 ?>
@@ -76,6 +96,14 @@ function pweb_onedrive_conf()
 <?php
 		}
     }
+	
+	if (LiveConnectClient::getRedirectUri() !== get_option('pweb_onedrive_redirect_uri')) {
+?>
+<div class="error">
+	<p><?php _e( 'Redirect URL for Perfect OneDrive Gallery & File has changed. You have to update your Windows Live Application. Save settings to dismiss this notice.', 'pwebonedrive' ); ?></p>
+</div>
+<?php
+	}
 ?>
 <div class="wrap">
 	
@@ -93,8 +121,8 @@ function pweb_onedrive_conf()
 			<?php _e( 'Buy Support' ); ?></a>
 	</h2>
 	
-	<?php if (version_compare( $wp_version, '2.8', '<' ) ) { ?>
-		<div class="error"><p><strong><?php _e('This plugin is compatible with WordPress 2.8 or higher.', 'pwebonedrive' ); ?></strong></p></div>
+	<?php if (version_compare( $wp_version, '3.1', '<' ) ) { ?>
+		<div class="error"><p><strong><?php _e('This plugin is compatible with WordPress 3.1 or higher.', 'pwebonedrive' ); ?></strong></p></div>
 	<?php } ?>
 	
 	<div id="wp_updates"></div>
@@ -112,12 +140,33 @@ function pweb_onedrive_conf()
 						<p>
 							<?php _e('Register your site in', 'pwebonedrive'); ?>
 							<a target="_blank" href="https://account.live.com/developers/applications/index"><?php _e('Windows Live application management', 'pwebonedrive'); ?></a>.<br>
-							<?php _e('Remember to set', 'pwebonedrive'); ?> <strong><?php _e('Redirect URL', 'pwebonedrive'); ?></strong>: 
-							<a href="<?php echo plugins_url( 'callback.php', __FILE__ ); ?>" target="_blank"><?php echo plugins_url( 'callback.php', __FILE__ ); ?></a><br>
+							<?php _e('Remember to set', 'pwebonedrive'); ?> <strong><?php _e('Redirect URL', 'pwebonedrive'); ?></strong>
 							<?php _e('and', 'pwebonedrive'); ?> <strong><?php _e('Mobile client app: No', 'pwebonedrive'); ?></strong><br>
 							<?php _e('and if available', 'pwebonedrive'); ?> <strong><?php _e('Enhanced redirection security: Enabled', 'pwebonedrive'); ?></strong> <?php _e('(for applications created before June 2014)', 'pwebonedrive'); ?><br>
 							<?php _e('Read how to', 'pwebonedrive'); ?> <a target="_blank" href="http://msdn.microsoft.com/library/cc287659.aspx"><?php _e('get your Client ID', 'pwebonedrive'); ?></a>.
 						</p>
+					</td>
+				</tr>
+				<tr>
+					<th><label for="pweb-redirect_uri"><?php _e('Redirect URL', 'pwebonedrive'); ?></label></th>
+					<td>
+						<input id="pweb-redirect_uri" name="redirect_uri" type="text" size="30" readonly="readonly" value="<?php echo esc_attr( LiveConnectClient::getRedirectUri() ); ?>" class="regular-text code">
+						<script type="text/javascript">
+						jQuery(document).ready(function($){
+							$("input#pweb-redirect_uri")
+								.on("click", function(e){
+									e.preventDefault();
+									e.stopPropagation();
+									$(this).select();
+								})
+								.on("keydown", function(e){
+									e.preventDefault();
+									e.stopPropagation();
+									$(this).select();
+								});
+						});
+						</script>
+						<p><em><?php _e('This URL might change if you change WordPress permalinks settings', 'pwebonedrive'); ?></em></p>
 					</td>
 				</tr>
 				<tr>
@@ -153,7 +202,7 @@ function pweb_onedrive_conf()
 	// Updates feed
 	(function(){
 		var pw=document.createElement("script");pw.type="text/javascript";pw.async=true;
-		pw.src="https://www.perfect-web.co/index.php?option=com_pwebshop&view=updates&format=raw&extension=wp_onedrive&version=<?php echo pweb_onedrive_get_version(); ?>&wpversion=<?php echo $wp_version; ?>";
+		pw.src="https://www.perfect-web.co/index.php?option=com_pwebshop&view=updates&format=raw&extension=wp_onedrive&version=<?php echo pweb_onedrive_get_version(); ?>&wpversion=<?php echo $wp_version; ?>&uid=<?php echo md5(home_url()); ?>";
 		var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(pw,s);
 	})();
 	</script>

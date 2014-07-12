@@ -2,9 +2,9 @@
 Contributors: perfect-web
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CDDZ6G6LDV4LG
 Tags: onedrive, one drive, skydrive, microsoft, gallery, download, cloud storage
-Requires at least: 2.8.0
+Requires at least: 3.1.0
 Tested up to: 3.9.1
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -123,6 +123,11 @@ If you would not find there any error message then send this log file to our sup
 
 == Changelog ==
 
+= 1.2.0 / 12-07-2014 =
+* Requires at least WordPress 3.1
+* New redirect URL which supports permalinks
+* Handle OneDrive calls through WordPress AJAX interface
+
 = 1.1.0 / 26-06-2014 =
 * Fixed redirect URL for new Windows Live applications
 
@@ -148,4 +153,7 @@ If you would not find there any error message then send this log file to our sup
 == Upgrade Notice ==
 
 = 1.1.0 =
+New redirect URL for Windows Live applications! See configuration of plugin after upgrade.
+
+= 1.2.0 =
 New redirect URL for Windows Live applications! See configuration of plugin after upgrade.

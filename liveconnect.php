@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.1.0
+ * @version 1.2.0
  * @package OneDrive
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
@@ -18,10 +18,11 @@ class LiveConnectClient
 {
 	protected $options;
 	protected $http;
-	protected $access_id 		= 0;
-	protected static $access 	= array();
-	protected static $token 	= array();
-	protected static $instance 	= null;
+	protected $access_id 			= 0;
+	protected static $access 		= array();
+	protected static $token 		= array();
+	protected static $redirect_uri 	= null;
+	protected static $instance 		= null;
 	
 	public function __construct($options = null)
 	{
@@ -32,7 +33,7 @@ class LiveConnectClient
 			'authmethod' 	=> 'get',
 			'authurl' 		=> 'https://login.live.com/oauth20_token.srf', 
 			'tokenurl' 		=> 'https://login.live.com/oauth20_token.srf', 
-			'redirecturi' 	=> plugins_url( 'callback.php', __FILE__ ), 
+			'redirecturi' 	=> self::getRedirectUri(), 
 			'userefresh' 	=> true,
 			'storetoken' 	=> true,
 			'usecookie'		=> true,
@@ -63,6 +64,34 @@ class LiveConnectClient
 		{
 			self::$instance = & $instance;
 		}
+	}
+	
+	
+	public static function getRedirectUri()
+	{
+		if (!self::$redirect_uri)
+		{
+			$permalink_structure = get_option('permalink_structure');
+			
+			if ($permalink_structure) 
+			{
+				$pos = strpos($permalink_structure, 'index.php/');
+				if ($pos === 0 OR $pos === 1) 
+				{
+					self::$redirect_uri = home_url( 'index.php/pwebonedrive/callback' );
+				}
+				else 
+				{
+					self::$redirect_uri = home_url( 'pwebonedrive/callback' );
+				}
+			}
+			else 
+			{
+				self::$redirect_uri = plugins_url( 'callback.php', __FILE__ );
+			}
+		}
+		
+		return self::$redirect_uri;
 	}
 	
 	

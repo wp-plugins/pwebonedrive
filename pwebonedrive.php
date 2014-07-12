@@ -3,7 +3,7 @@
  * Plugin Name: Perfect OneDrive Gallery & File
  * Plugin URI: http://www.perfect-web.co/wordpress/microsoft-onedrive-gallery-file
  * Description: Share easily your photos and files stored on Microsoft OneDrive. You can display a gallery with your photos or a link to a file for download.
- * Version: 1.1.0
+ * Version: 1.2.0
  * Text Domain: pwebonedrive
  * Author: Piotr Moćko
  * Author URI: http://www.perfect-web.co
@@ -26,6 +26,7 @@ function pweb_onedrive_init()
 	wp_register_script('pweb_onedrive_prettyphoto_script', plugins_url('js/jquery.prettyPhoto'.(PWEB_ONEDRIVE_DEBUG ? '' : '.min').'.js', __FILE__), array('jquery'));
 }
 add_action('init', 'pweb_onedrive_init');
+
 
 
 require_once dirname( __FILE__ ) . '/liveconnect.php';
@@ -122,8 +123,8 @@ function pweb_onedrive_galery_shortcode($atts, $content = null, $tag)
 				$image->ext = substr($image->name, $dot);
 				
 				// Image url
-				$url = plugins_url('do.php', __FILE__).'?action=display_photo&aid='.$images->access_id.'&code='.base64_encode($image->id.'/picture?type='.$full).'#'.$image->ext;
-				$src = plugins_url('do.php', __FILE__).'?action=display_photo&aid='.$images->access_id.'&code='.base64_encode($image->id.'/picture?type='.$thumbnail);
+				$url = admin_url('admin-ajax.php?action=pweb_onedrive_display_photo&aid='.$images->access_id.'&code='.base64_encode($image->id.'/picture?type='.$full).'#'.$image->ext);
+				$src = admin_url('admin-ajax.php?action=pweb_onedrive_display_photo&aid='.$images->access_id.'&code='.base64_encode($image->id.'/picture?type='.$thumbnail));
 				
 				// Output image
 				$output .= 
@@ -189,7 +190,7 @@ function pweb_onedrive_file_shortcode($atts, $content = null, $tag)
 			}
 			
 			// Image url
-			$src = plugins_url('do.php', __FILE__).'?action=display_photo&aid='.$file->access_id.'&code='.base64_encode($file->id.'/picture?type='.$image);
+			$src = admin_url('admin-ajax.php?action=pweb_onedrive_display_photo&aid='.$file->access_id.'&code='.base64_encode($file->id.'/picture?type='.$image));
 			
 			// Output image
 			$output = '<img src="'.$src.'" class="onedrivefile onedrivefile-photo'. $class .(PWEB_ONEDRIVE_DEBUG ? ' debug' : '').'"';
@@ -226,7 +227,7 @@ function pweb_onedrive_file_shortcode($atts, $content = null, $tag)
 			}
 			
 			// File url
-			$url = plugins_url('do.php', __FILE__).'?action=download_file&aid='.$file->access_id.'&code='.base64_encode($file->id.'/content?download=true');
+			$url = admin_url('admin-ajax.php?action=pweb_onedrive_download_file&aid='.$file->access_id.'&code='.base64_encode($file->id.'/content?download=true'));
 			
 			// Output file
 			$output = 
@@ -363,6 +364,7 @@ function pweb_onedrive_file_format_size($size)
 }
 
 
+add_action('wp_ajax_pweb_onedrive_download_file', 'pweb_onedrive_download_file');
 add_action('wp_ajax_nopriv_pweb_onedrive_download_file', 'pweb_onedrive_download_file');
 function pweb_onedrive_download_file() 
 {
@@ -403,6 +405,7 @@ function pweb_onedrive_download_file()
 }
 
 
+add_action('wp_ajax_pweb_onedrive_display_photo', 'pweb_onedrive_display_photo');
 add_action('wp_ajax_nopriv_pweb_onedrive_display_photo', 'pweb_onedrive_display_photo');
 function pweb_onedrive_display_photo() 
 {
@@ -458,6 +461,28 @@ function pweb_onedrive_display_photo()
 }
 
 
+function pweb_onedrive_parse_request()
+{
+	if (!empty($_SERVER['REQUEST_URI']) AND preg_match('/\/pwebonedrive\/callback\/?$/', $_SERVER['REQUEST_URI']) === 1)
+	{
+		pweb_onedrive_callback();
+    }
+}
+add_action('parse_request', 'pweb_onedrive_parse_request');
+
+function pweb_onedrive_callback()
+{
+	$client = LiveConnectClient::getInstance();
+	$client->log(__FUNCTION__);
+
+	echo $client->handlePageRequest();
+
+	$client->log(__FUNCTION__.'. Die');
+
+	die();
+}
+
+
 register_activation_hook( __FILE__, 'pweb_onedrive_install' );
 function pweb_onedrive_install()
 {
@@ -491,4 +516,17 @@ function pweb_onedrive_install()
 	) $charset_collate AUTO_INCREMENT=1;";
 	
 	dbDelta( $sql );
+}
+
+register_uninstall_hook( __FILE__, 'pweb_onedrive_uninstall' );
+function pweb_onedrive_uninstall()
+{
+	global $wpdb;
+	
+	$wpdb->query( "DROP TABLE IF EXISTS `{$wpdb->prefix}onedrive_access`" );
+	$wpdb->query( "DROP TABLE IF EXISTS `{$wpdb->prefix}onedrive_storage`" );
+	
+	delete_option( 'pweb_onedrive_client_id' );
+	delete_option( 'pweb_onedrive_client_secret' );
+	delete_option( 'pweb_onedrive_redirect_uri' );
 }

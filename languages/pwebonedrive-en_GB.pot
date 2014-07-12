@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Perfect OneDrive\n"
-"POT-Creation-Date: 2014-06-26 22:37+0100\n"
-"PO-Revision-Date: 2014-06-26 22:38+0100\n"
+"POT-Creation-Date: 2014-07-12 13:25+0100\n"
+"PO-Revision-Date: 2014-07-12 13:26+0100\n"
 "Last-Translator: Piotr Moćko <p.mocko@perfect-web.co>\n"
 "Language-Team: Perfect-Web.co <office@perfect-web.co>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Poedit 1.6.6\n"
 "X-Poedit-Basepath: ../\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -58,117 +58,135 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: admin.php:39
+#: admin.php:37
+#, php-format
+msgid ""
+"Redirect URL for Perfect OneDrive Gallery & File has changed. You have to "
+"update your Windows Live Application. Go to plugin %ssettings%s and save it "
+"to dismiss this notice."
+msgstr ""
+
+#: admin.php:50
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: admin.php:54
+#: admin.php:72
 msgid "Incorrect Client ID."
 msgstr ""
 
-#: admin.php:58
+#: admin.php:76
 msgid "Missing Client ID."
 msgstr ""
 
-#: admin.php:65
+#: admin.php:83
 msgid "Missing Client secret."
 msgstr ""
 
-#: admin.php:75
+#: admin.php:95
 msgid "Settings saved."
 msgstr ""
 
-#: admin.php:83
+#: admin.php:103
+msgid ""
+"Redirect URL for Perfect OneDrive Gallery & File has changed. You have to "
+"update your Windows Live Application. Save settings to dismiss this notice."
+msgstr ""
+
+#: admin.php:111
 msgid "Version"
 msgstr ""
 
-#: admin.php:87
+#: admin.php:115
 msgid "Perfect OneDrive Gallery & File Settings"
 msgstr ""
 
-#: admin.php:90
+#: admin.php:118
 msgid "Documentation"
 msgstr ""
 
-#: admin.php:93
+#: admin.php:121
 msgid "Buy Support"
 msgstr ""
 
-#: admin.php:97
-msgid "This plugin is compatible with WordPress 2.8 or higher."
+#: admin.php:125
+msgid "This plugin is compatible with WordPress 3.1 or higher."
 msgstr ""
 
-#: admin.php:102
+#: admin.php:130
 msgid ""
 "Share easily your photos and files stored on Microsoft OneDrive. You can "
 "display a gallery with your photos or a link to a file for download."
 msgstr ""
 
-#: admin.php:113
+#: admin.php:141
 msgid "Register your site in"
 msgstr ""
 
-#: admin.php:114
+#: admin.php:142
 msgid "Windows Live application management"
 msgstr ""
 
-#: admin.php:115
+#: admin.php:143
 msgid "Remember to set"
 msgstr ""
 
-#: admin.php:115
+#: admin.php:143 admin.php:151
 msgid "Redirect URL"
 msgstr ""
 
-#: admin.php:117
+#: admin.php:144
 msgid "and"
 msgstr ""
 
-#: admin.php:117
+#: admin.php:144
 msgid "Mobile client app: No"
 msgstr ""
 
-#: admin.php:118
+#: admin.php:145
 msgid "and if available"
 msgstr ""
 
-#: admin.php:118
+#: admin.php:145
 msgid "Enhanced redirection security: Enabled"
 msgstr ""
 
-#: admin.php:118
+#: admin.php:145
 msgid "(for applications created before June 2014)"
 msgstr ""
 
-#: admin.php:119
+#: admin.php:146
 msgid "Read how to"
 msgstr ""
 
-#: admin.php:119
+#: admin.php:146
 msgid "get your Client ID"
 msgstr ""
 
-#: admin.php:124
+#: admin.php:169
+msgid "This URL might change if you change WordPress permalinks settings"
+msgstr ""
+
+#: admin.php:173
 msgid "Client ID"
 msgstr ""
 
-#: admin.php:130
+#: admin.php:179
 msgid "Client secret"
 msgstr ""
 
-#: pwebonedrive.php:141
+#: pwebonedrive.php:143
 msgid "There are no images in this gallery!"
 msgstr ""
 
-#: pwebonedrive.php:147
+#: pwebonedrive.php:149
 msgid "Can not load images!"
 msgstr ""
 
-#: pwebonedrive.php:244
+#: pwebonedrive.php:246
 msgid "Can not load file!"
 msgstr ""
 
-#: pwebonedrive.php:268 pwebonedrive.php:309 pwebonedrive.php:382
-#: pwebonedrive.php:422 pwebonedrive.php:445
+#: pwebonedrive.php:270 pwebonedrive.php:311 pwebonedrive.php:385
+#: pwebonedrive.php:426 pwebonedrive.php:449
 msgid "Can not load data!"
 msgstr ""
