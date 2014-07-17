@@ -1,5 +1,5 @@
 === Perfect OneDrive Gallery & File ===
-Contributors: perfect-web
+Contributors: perfect-web, piotrmocko
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CDDZ6G6LDV4LG
 Tags: onedrive, one drive, skydrive, microsoft, gallery, download, cloud storage
 Requires at least: 3.1.0
