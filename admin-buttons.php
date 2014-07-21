@@ -45,7 +45,7 @@ function pweb_onedrive_register_buttons($buttons)
 function pweb_onedrive_buttons_script() 
 {
 	$i18n = array(
-		'button_gallery' => __( 'OneDrive Galery', 'pwebonedrive' ), 
+		'button_gallery' => __( 'OneDrive Gallery', 'pwebonedrive' ), 
 		'button_file' => __( 'OneDrive File', 'pwebonedrive' ), 
 		'emergency_exit' => __( 'OneDrive emergency exit', 'pwebonedrive' ), 
 		'folder_select_warning' => __( 'Perfect OneDrive Gallery: select only folder with photos!', 'pwebonedrive' ), 

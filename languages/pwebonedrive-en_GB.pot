@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Perfect OneDrive\n"
-"POT-Creation-Date: 2014-07-12 13:25+0100\n"
-"PO-Revision-Date: 2014-07-12 13:26+0100\n"
+"POT-Creation-Date: 2014-07-21 15:24+0100\n"
+"PO-Revision-Date: 2014-07-21 15:24+0100\n"
 "Last-Translator: Piotr Moćko <p.mocko@perfect-web.co>\n"
 "Language-Team: Perfect-Web.co <office@perfect-web.co>\n"
 "Language: en_GB\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: admin-buttons.php:48
-msgid "OneDrive Galery"
+msgid "OneDrive Gallery"
 msgstr ""
 
 #: admin-buttons.php:49
