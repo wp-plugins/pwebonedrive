@@ -56,7 +56,8 @@ PHP 5.2+
 1. **Activate the plugin** through the Plugins menu in WordPress.
 1. Create **Windows Live ID** account for [OneDrive](https://onedrive.live.com/) if you do not have already
 1. **Register your site** in [Windows Live application management](https://account.live.com/developers/applications/index) that WordPress could connect to your OneDrive.
-Remember to set **Redirect URL** *http://yourdomain.com/wp-content/plugins/pwebonedrive/callback.php*
+Remember to set **Redirect URL** as shown in plugin configuration and it should look like this: *http://yourdomain.com/path-to-wordpress/wp-content/pwebonedrive/callback.php*
+or if  you have enabled Permalinks in WordPress Settings then it should look like this: *http://yourdomain.com/path-to-wordpress/pwebonedrive/callback*
 and **Mobile client app: No** 
 and if available **Enhanced redirection security: Enabled** (for applications created before June 2014).
 [Read how to get your Client ID](http://msdn.microsoft.com/library/cc287659.aspx).
