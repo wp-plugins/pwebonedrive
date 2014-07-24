@@ -74,6 +74,19 @@ and if available **Enhanced redirection security: Enabled** (for applications cr
 
 Disable pop-up windows blocking, because OneDrive would display login and permissions screen in a new pop-up window.
 
+== Change size of thumbnails in gallery
+
+OneDrive offers only two sizes of thumbnails.
+To change it, add to your shortcode a following attribute:
+`[onedrivegallery id="..." thumbnail="thumbnail"]`
+Default thumbnail size is:
+`[onedrivegallery id="..." thumbnail="album"]`
+
+You can also change size of lightbox image, by adding to your shortcode a following attribute:
+`[onedrivegallery id="..." full="full"]`
+Default lightbox image size is:
+`[onedrivegallery id="..." full="normal"]`
+
 = Blank Lightbox or error =
 
 If you clicked OneDrive button in editor and nothing has happened after a few minutes or a blank Lightbox window has display with message: Error Microsoft OneDrive, then remove cookie named: wl_auth and reload post edit page.
