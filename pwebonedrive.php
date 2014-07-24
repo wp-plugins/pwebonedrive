@@ -3,7 +3,7 @@
  * Plugin Name: Perfect OneDrive Gallery & File
  * Plugin URI: http://www.perfect-web.co/wordpress/microsoft-onedrive-gallery-file
  * Description: Share easily your photos and files stored on Microsoft OneDrive. You can display a gallery with your photos or a link to a file for download.
- * Version: 1.2.0
+ * Version: 1.2.1
  * Text Domain: pwebonedrive
  * Author: Piotr Moćko
  * Author URI: http://www.perfect-web.co
@@ -463,7 +463,7 @@ function pweb_onedrive_display_photo()
 
 function pweb_onedrive_parse_request()
 {
-	if (!empty($_SERVER['REQUEST_URI']) AND preg_match('/\/pwebonedrive\/callback\/?$/', $_SERVER['REQUEST_URI']) === 1)
+	if (!empty($_SERVER['REQUEST_URI']) AND preg_match('/\/pwebonedrive\/callback\/?(\?.+)?$/', $_SERVER['REQUEST_URI']) === 1)
 	{
 		pweb_onedrive_callback();
     }
