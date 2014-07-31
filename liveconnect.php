@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.2.0
+ * @version 1.2.2
  * @package OneDrive
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
@@ -396,7 +396,7 @@ class LiveConnectClient
 			
 			if ($this->getOption('usecookie'))
 			{
-				$authCookie = $_COOKIE[$this->getOption('cookiename')];
+				$authCookie = isset($_COOKIE[$this->getOption('cookiename')]) ? $_COOKIE[$this->getOption('cookiename')] : '';
 				$cookieValues = $this->parseQueryString($authCookie);
 				
 				if ($error === false AND is_array($token))
@@ -463,7 +463,7 @@ class LiveConnectClient
 
 		if ($this->getOption('usecookie'))
 		{
-			$authCookie = $_COOKIE[$this->getOption('cookiename')];
+			$authCookie = isset($_COOKIE[$this->getOption('cookiename')]) ? $_COOKIE[$this->getOption('cookiename')] : '';
 			$cookieValues = $this->parseQueryString($authCookie);
 			
 			$this->log(__METHOD__.'. Get cookie: '.print_r($cookieValues, true));
