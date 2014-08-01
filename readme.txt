@@ -56,10 +56,18 @@ PHP 5.2+
 1. **Activate the plugin** through the Plugins menu in WordPress.
 1. Create **Windows Live ID** account for [OneDrive](https://onedrive.live.com/) if you do not have already
 1. **Register your site** in [Windows Live application management](https://account.live.com/developers/applications/index) that WordPress could connect to your OneDrive.
-Remember to set **Redirect URL** as shown in plugin configuration and it should look like this: *http://yourdomain.com/path-to-wordpress/wp-content/pwebonedrive/callback.php*
-or if  you have enabled Permalinks in WordPress Settings then it should look like this: *http://yourdomain.com/path-to-wordpress/pwebonedrive/callback*
+Remember to set **Redirect URL** as shown in plugin configuration 
+
+and it should look like this: 
+*http://yourdomain.com/path-to-wordpress/wp-content/pwebonedrive/callback.php*
+
+or if  you have enabled Permalinks in WordPress Settings then it should look like this: 
+*http://yourdomain.com/path-to-wordpress/pwebonedrive/callback*
+
 and **Mobile client app: No** 
+
 and if available **Enhanced redirection security: Enabled** (for applications created before June 2014).
+
 [Read how to get your Client ID](http://msdn.microsoft.com/library/cc287659.aspx).
 1. Go to **plugin configuration** panel and set all details from **Windows Live application management**.
 1. Disable pop-up windows blocking, because OneDrive would display login and permissions screen in a new pop-up window.
@@ -70,11 +78,13 @@ and if available **Enhanced redirection security: Enabled** (for applications cr
 
 [Visit full documentation page](http://www.perfect-web.co/wordpress/microsoft-onedrive-gallery-file/documentation)
 
+
 = First use of OneDrive buttons =
 
 Disable pop-up windows blocking, because OneDrive would display login and permissions screen in a new pop-up window.
 
-== Change size of thumbnails in gallery
+
+= Change size of thumbnails in gallery =
 
 OneDrive offers only two sizes of thumbnails.
 To change it, add to your shortcode a following attribute:
@@ -87,6 +97,7 @@ You can also change size of lightbox image, by adding to your shortcode a follow
 Default lightbox image size is:
 `[onedrivegallery id="..." full="normal"]`
 
+
 = Blank Lightbox or error =
 
 If you clicked OneDrive button in editor and nothing has happened after a few minutes or a blank Lightbox window has display with message: Error Microsoft OneDrive, then remove cookie named: wl_auth and reload post edit page.
@@ -94,6 +105,7 @@ If you clicked OneDrive button in editor and nothing has happened after a few mi
 Use OneDrive emergency exit button to close all blank layers.
 
 Remember to save post before using OneDrive buttons or at least before reloading page.
+
 
 = Error in Microsoft popup =
 
@@ -110,6 +122,7 @@ Make sure that if you have set in Windows Live application management **redirect
 If it is possible to access your site with and without www then you should correct it in .htaccess file and allow only one way.
 
 If you have other error description then send it to our support.
+
 
 = Debugging =
 
