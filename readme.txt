@@ -72,13 +72,20 @@ or if  you have enabled Permalinks in WordPress Settings then it should look lik
 
 [Visit full documentation page](http://www.perfect-web.co/wordpress/microsoft-onedrive-gallery-file/documentation)
 
---------------------------------------- ---------------------------------------
+1
+* * *
+2
+***
+3
+*****
+4
+- - -
 
 = First use of OneDrive buttons =
 
 Disable pop-up windows blocking, because OneDrive would display login and permissions screen in a new pop-up window.
 
---------------------------------------- ---------------------------------------
+------------------------------------------------------------------------------
 
 = Change size of thumbnails in gallery =
 
@@ -93,7 +100,7 @@ You can also change size of lightbox image, by adding to your shortcode a follow
 Default lightbox image size is:
 `[onedrivegallery id="..." full="normal"]`
 
---------------------------------------- ---------------------------------------
+------------------------------------------------------------------------------
 
 = Blank Lightbox or error =
 
@@ -103,7 +110,7 @@ Use OneDrive emergency exit button to close all blank layers.
 
 Remember to save post before using OneDrive buttons or at least before reloading page.
 
---------------------------------------- ---------------------------------------
+------------------------------------------------------------------------------
 
 = Error in Microsoft popup =
 
@@ -123,7 +130,7 @@ If it is possible to access your site with and without www then you should corre
 
 If you have other error description then send it to our support.
 
---------------------------------------- ---------------------------------------
+------------------------------------------------------------------------------
 
 = Debugging =
 
