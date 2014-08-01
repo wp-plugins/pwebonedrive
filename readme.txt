@@ -55,17 +55,15 @@ PHP 5.2+
 1. Install ZIP file or upload plugin files to the `/wp-content/plugins/pwebonedrive` directory.
 1. **Activate the plugin** through the Plugins menu in WordPress.
 1. Create **Windows Live ID** account for [OneDrive](https://onedrive.live.com/) if you do not have already
-1. **Register your site** in [Windows Live application management](https://account.live.com/developers/applications/index) that WordPress could connect to your OneDrive. 
-Remember to set **Redirect URL** as shown in plugin configuration 
-and it should look like this: 
-*http://yourdomain.com/path-to-wordpress/wp-content/pwebonedrive/callback.php* 
+1. **Register your site** in [Windows Live Application Management](https://account.live.com/developers/applications/index) that WordPress could connect to your OneDrive. 
+1. Set **Redirect URL** in Windows Live Application as shown in plugin configuration.
+It should look like this: 
+`http://yourdomain.com/path-to-wordpress/wp-content/pwebonedrive/callback.php`
 or if  you have enabled Permalinks in WordPress Settings then it should look like this: 
-*http://yourdomain.com/path-to-wordpress/pwebonedrive/callback* 
-and **Mobile client app: No** 
-and if available **Enhanced redirection security: Enabled** (for applications created before June 2014). 
-Each time you would **enable / disable WordPress Permalinks Settings**, Redirect URL will change and you will have to **update** it in **Windows Live Application**. 
-[Read how to get your Client ID](http://msdn.microsoft.com/library/cc287659.aspx).
-1. Go to **plugin configuration** panel and set all details from **Windows Live application management**.
+`http://yourdomain.com/path-to-wordpress/pwebonedrive/callback` 
+1. Set **Mobile client app: No** in Windows Live Application. 
+1. If available set **Enhanced redirection security: Enabled** in Windows Live Application (for applications created before June 2014). 
+1. Go to **plugin configuration** panel and set all details from **Windows Live Application**.
 1. Disable pop-up windows blocking, because OneDrive would display login and permissions screen in a new pop-up window.
 1. Edit post and use one of new blue buttons in editor.
 
@@ -73,13 +71,13 @@ Each time you would **enable / disable WordPress Permalinks Settings**, Redirect
 == Frequently Asked Questions ==
 
 [Visit full documentation page](http://www.perfect-web.co/wordpress/microsoft-onedrive-gallery-file/documentation)
- 
- 
+
+
 = First use of OneDrive buttons =
 
 Disable pop-up windows blocking, because OneDrive would display login and permissions screen in a new pop-up window.
- 
- 
+
+
 = Change size of thumbnails in gallery =
 
 OneDrive offers only two sizes of thumbnails.
@@ -92,8 +90,8 @@ You can also change size of lightbox image, by adding to your shortcode a follow
 `[onedrivegallery id="..." full="full"]`
 Default lightbox image size is:
 `[onedrivegallery id="..." full="normal"]`
- 
- 
+
+
 = Blank Lightbox or error =
 
 If you clicked OneDrive button in editor and nothing has happened after a few minutes or a blank Lightbox window has display with message: Error Microsoft OneDrive, then remove cookie named: wl_auth and reload post edit page.
@@ -101,8 +99,8 @@ If you clicked OneDrive button in editor and nothing has happened after a few mi
 Use OneDrive emergency exit button to close all blank layers.
 
 Remember to save post before using OneDrive buttons or at least before reloading page.
- 
- 
+
+
 = Error in Microsoft popup =
 
 Since plugin version 1.1.0 there is a new Redirect URL. Make sure you have updated it! You can also enable **Enhanced redirection security** in old Windows Live applications - created before June 2014.
@@ -120,11 +118,11 @@ Make sure that if you have set in Windows Live application management **redirect
 If it is possible to access your site with and without www then you should correct it in .htaccess file and allow only one way.
 
 If you have other error description then send it to our support.
- 
- 
+
+
 = Debugging =
 
-Enable debug in WordPress [read how to](https://codex.wordpress.org/Debugging_in_WordPress).
+Enable debug in WordPress - [read how to](https://codex.wordpress.org/Debugging_in_WordPress).
 
 Go to Post editor. 
 Remove **wl_auth cookie**. 
