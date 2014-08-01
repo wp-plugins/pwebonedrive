@@ -72,14 +72,7 @@ or if  you have enabled Permalinks in WordPress Settings then it should look lik
 
 [Visit full documentation page](http://www.perfect-web.co/wordpress/microsoft-onedrive-gallery-file/documentation)
 
-1
-* * *
-2
-***
-3
-*****
-4
-- - -
+------------------------------------------------------------------------------
 
 = First use of OneDrive buttons =
 
