@@ -42,7 +42,7 @@ This plugin is brought to you thanks to new Microsoft attiude towards Open Sourc
 
 = Translations =
 
-English, Serbian and Spanish by [Ogi Djuraskovic](http://firstsiteguide.com)
+English, Serbian and Spanish by [Ogi Djuraskovic](http://firstsiteguide.com), Simplified and Traditional Chinese by lvlcj
 
 
 = Requirements =
