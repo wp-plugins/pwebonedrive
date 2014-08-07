@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.2.0
+ * @version 1.2.3
  * @package OneDrive
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
@@ -74,38 +74,49 @@ function pweb_onedrive_ajax_store()
 	
 	$result = array('status' => false, 'message' => '');
 	
-	if (isset($_POST['resource_id']) AND ($resource_id = $_POST['resource_id']))
-	{
+	if (isset($_POST['resource_id']) AND ($resource_id = $_POST['resource_id'])) {
+	
 		$sql = $wpdb->prepare('SELECT `id`, `access_id` FROM `'.$wpdb->prefix.'onedrive_storage` WHERE `resource_id` LIKE %s', like_escape($resource_id));
 		$storage = $wpdb->get_row($sql, OBJECT);
 		
 		$user_id = LiveConnectClient::getUserIdFromResource($resource_id);
-		if ($user_id)
-		{
+		if ($user_id) {
+		
 			$sql = $wpdb->prepare('SELECT `id` FROM `'.$wpdb->prefix.'onedrive_access` WHERE `user_id` LIKE %s', like_escape($user_id));
 			$access_id = (int)$wpdb->get_var($sql);
 			
-			if ($access_id)
-			{
+			if ($access_id) {
+			
 				// create new storage
-				if ($storage === null)
-				{
+				if ($storage === null) {
+				
 					$result['status'] = $wpdb->insert($wpdb->prefix.'onedrive_storage', array(
 							'resource_id' => $resource_id,
 							'access_id' => $access_id
 						), array('%s', '%d'));
+						
+					if ($result['status'] === 0) {
+						$result['status'] = false;
+					}
 				}
 				// update access id in existing storage
-				elseif ($storage->access_id === 0 OR $storage->access_id !== $access_id)
-				{
+				elseif ((int)$storage->access_id === 0 OR (int)$storage->access_id !== $access_id) {
+				
 					$result['status'] = $wpdb->update($wpdb->prefix.'onedrive_storage', array(
 							'access_id' => $access_id
 						), array('id' => (int)$storage->id), array('%d'));
 				}
+				else {
+					$result['status'] = true;
+				}
 				
-				if (!$result['status']) $result['message'] = __('Error while saving selected resource. Try again.', 'pwebonedrive');
+				if ($result['status'] === false) {
+					$result['message'] = __('Error while saving selected resource. Try again.', 'pwebonedrive');
+				}
 			}
-			else $result['message'] = __('Access token for current OneDrive session was not saved. Logout from OneDrive and try again.', 'pwebonedrive');
+			else {
+				$result['message'] = __('Access token for current OneDrive session was not saved. Logout from OneDrive and try again.', 'pwebonedrive');
+			}
 		}
 	}
 	

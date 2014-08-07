@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: onedrive, one drive, skydrive, microsoft, gallery, download, cloud storage
 Requires at least: 3.1.0
 Tested up to: 3.9.1
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -150,6 +150,9 @@ If you would not find there any error message then send this log file to our sup
 7. Configuration
 
 == Changelog ==
+
+= 1.2.3 / 07-08-2014 =
+* Fixed inserting again the same gallery or file
 
 = 1.2.2 / 04-08-2014 =
 * Sort images in gallery by name ascending
