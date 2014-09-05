@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.2.2
+ * @version 1.2.4
  * @package OneDrive
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
@@ -350,7 +350,8 @@ class LiveConnectClient
 		{
 			if (!$this->getOption('storetoken')) return null;
 			
-			$sql = $wpdb->prepare('SELECT `access_id` FROM `'.$wpdb->prefix.'onedrive_storage` WHERE `resource_id` LIKE %s', like_escape($resource_id));
+			$sql_like = method_exists($wpdb, 'esc_like') ? $wpdb->esc_like($resource_id) : like_escape($resource_id);
+			$sql = $wpdb->prepare('SELECT `access_id` FROM `'.$wpdb->prefix.'onedrive_storage` WHERE `resource_id` LIKE %s', $sql_like);
 			self::$access[$resource_id] = (int)$wpdb->get_var($sql);
 		}
 		
@@ -524,9 +525,10 @@ class LiveConnectClient
 			if ($user_id)
 			{
 				// save the refresh token and associate it with the user identified by your site credential system.
+				$sql_like = method_exists($wpdb, 'esc_like') ? $wpdb->esc_like($user_id) : like_escape($user_id);
 				$sql = $wpdb->prepare(
 					'SELECT `id` '.
-					'FROM `'.$wpdb->prefix.'onedrive_access` WHERE `user_id` LIKE %s', like_escape($user_id));
+					'FROM `'.$wpdb->prefix.'onedrive_access` WHERE `user_id` LIKE %s', $sql_like);
 				$this->access_id = (int)$wpdb->get_var($sql);
 				
 				$this->log(__METHOD__.'. Get access ID by User ID. Result: '.$this->access_id);

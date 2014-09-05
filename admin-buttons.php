@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.2.3
+ * @version 1.2.4
  * @package OneDrive
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
@@ -76,13 +76,15 @@ function pweb_onedrive_ajax_store()
 	
 	if (isset($_POST['resource_id']) AND ($resource_id = $_POST['resource_id'])) {
 	
-		$sql = $wpdb->prepare('SELECT `id`, `access_id` FROM `'.$wpdb->prefix.'onedrive_storage` WHERE `resource_id` LIKE %s', like_escape($resource_id));
+		$sql_like = method_exists($wpdb, 'esc_like') ? $wpdb->esc_like($resource_id) : like_escape($resource_id);
+		$sql = $wpdb->prepare('SELECT `id`, `access_id` FROM `'.$wpdb->prefix.'onedrive_storage` WHERE `resource_id` LIKE %s', $sql_like);
 		$storage = $wpdb->get_row($sql, OBJECT);
 		
 		$user_id = LiveConnectClient::getUserIdFromResource($resource_id);
 		if ($user_id) {
 		
-			$sql = $wpdb->prepare('SELECT `id` FROM `'.$wpdb->prefix.'onedrive_access` WHERE `user_id` LIKE %s', like_escape($user_id));
+			$sql_like = method_exists($wpdb, 'esc_like') ? $wpdb->esc_like($user_id) : like_escape($user_id);
+			$sql = $wpdb->prepare('SELECT `id` FROM `'.$wpdb->prefix.'onedrive_access` WHERE `user_id` LIKE %s', $sql_like);
 			$access_id = (int)$wpdb->get_var($sql);
 			
 			if ($access_id) {
