@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.2.4
+ * @version 1.2.5
  * @package OneDrive
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
@@ -71,6 +71,7 @@ class LiveConnectClient
 	{
 		if (!self::$redirect_uri)
 		{
+            $ssl = (define('FORCE_SSL_ADMIN') AND FORCE_SSL_ADMIN ? true : is_ssl());
 			$permalink_structure = get_option('permalink_structure');
 			
 			if ($permalink_structure) 
@@ -78,11 +79,11 @@ class LiveConnectClient
 				$pos = strpos($permalink_structure, 'index.php/');
 				if ($pos === 0 OR $pos === 1) 
 				{
-					self::$redirect_uri = home_url( 'index.php/pwebonedrive/callback' );
+					self::$redirect_uri = home_url( 'index.php/pwebonedrive/callback', $ssl ? 'https' : 'http' );
 				}
 				else 
 				{
-					self::$redirect_uri = home_url( 'pwebonedrive/callback' );
+					self::$redirect_uri = home_url( 'pwebonedrive/callback', $ssl ? 'https' : 'http' );
 				}
 			}
 			else 

@@ -3,7 +3,7 @@
  * Plugin Name: Perfect OneDrive Gallery & File
  * Plugin URI: http://www.perfect-web.co/wordpress/microsoft-onedrive-gallery-file
  * Description: Share easily your photos and files stored on Microsoft OneDrive. You can display a gallery with your photos or a link to a file for download.
- * Version: 1.2.4
+ * Version: 1.2.5
  * Text Domain: pwebonedrive
  * Author: Piotr Moćko
  * Author URI: http://www.perfect-web.co
@@ -123,8 +123,8 @@ function pweb_onedrive_galery_shortcode($atts, $content = null, $tag)
 				$image->ext = substr($image->name, $dot);
 				
 				// Image url
-				$url = admin_url('admin-ajax.php?action=pweb_onedrive_display_photo&aid='.$images->access_id.'&code='.base64_encode($image->id.'/picture?type='.$full).'#'.$image->ext);
-				$src = admin_url('admin-ajax.php?action=pweb_onedrive_display_photo&aid='.$images->access_id.'&code='.base64_encode($image->id.'/picture?type='.$thumbnail));
+				$url = admin_url('admin-ajax.php?action=pweb_onedrive_display_photo&aid='.$images->access_id.'&code='.base64_encode($image->id.'/picture?type='.$full).'#'.$image->ext, is_ssl() ? 'https' : 'http');
+				$src = admin_url('admin-ajax.php?action=pweb_onedrive_display_photo&aid='.$images->access_id.'&code='.base64_encode($image->id.'/picture?type='.$thumbnail), is_ssl() ? 'https' : 'http');
 				
 				// Output image
 				$output .= 
@@ -190,7 +190,7 @@ function pweb_onedrive_file_shortcode($atts, $content = null, $tag)
 			}
 			
 			// Image url
-			$src = admin_url('admin-ajax.php?action=pweb_onedrive_display_photo&aid='.$file->access_id.'&code='.base64_encode($file->id.'/picture?type='.$image));
+			$src = admin_url('admin-ajax.php?action=pweb_onedrive_display_photo&aid='.$file->access_id.'&code='.base64_encode($file->id.'/picture?type='.$image), is_ssl() ? 'https' : 'http');
 			
 			// Output image
 			$output = '<img src="'.$src.'" class="onedrivefile onedrivefile-photo'. $class .(PWEB_ONEDRIVE_DEBUG ? ' debug' : '').'"';
@@ -227,7 +227,7 @@ function pweb_onedrive_file_shortcode($atts, $content = null, $tag)
 			}
 			
 			// File url
-			$url = admin_url('admin-ajax.php?action=pweb_onedrive_download_file&aid='.$file->access_id.'&code='.base64_encode($file->id.'/content?download=true'));
+			$url = admin_url('admin-ajax.php?action=pweb_onedrive_download_file&aid='.$file->access_id.'&code='.base64_encode($file->id.'/content?download=true'), is_ssl() ? 'https' : 'http');
 			
 			// Output file
 			$output = 
