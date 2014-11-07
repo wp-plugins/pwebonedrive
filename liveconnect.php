@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.2.5
+ * @version 1.2.6
  * @package OneDrive
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
@@ -71,7 +71,7 @@ class LiveConnectClient
 	{
 		if (!self::$redirect_uri)
 		{
-            $ssl = (define('FORCE_SSL_ADMIN') AND FORCE_SSL_ADMIN ? true : is_ssl());
+            $ssl = (defined('FORCE_SSL_ADMIN') AND FORCE_SSL_ADMIN ? true : is_ssl());
 			$permalink_structure = get_option('permalink_structure');
 			
 			if ($permalink_structure) 
