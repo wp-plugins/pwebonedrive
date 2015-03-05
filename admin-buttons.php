@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.2.4
+ * @version 1.2.7
  * @package OneDrive
  * @copyright © 2014 Perfect Web sp. z o.o., All rights reserved. http://www.perfect-web.co
  * @license http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
@@ -18,7 +18,7 @@ function pweb_onedrive_buttons()
    if ( ( current_user_can('edit_posts') || current_user_can('edit_pages') ) && get_user_option('rich_editing') && get_option('pweb_onedrive_client_id') ) {
 		
 		// Live Connect JavaScript library
-		wp_register_script('liveconnect', '//js.live.net/v5.0/wl'.(PWEB_ONEDRIVE_DEBUG ? '.debug' : '').'.js');
+		wp_register_script('liveconnect', (is_ssl() ? 'https' : 'http') . '://js.live.net/v5.0/wl'.(PWEB_ONEDRIVE_DEBUG ? '.debug' : '').'.js');
 		wp_enqueue_script('liveconnect');
 		
 		wp_enqueue_script('jquery');
