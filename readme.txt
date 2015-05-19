@@ -3,8 +3,8 @@ Contributors: perfect-web, piotrmocko
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CDDZ6G6LDV4LG
 Tags: onedrive, one drive, skydrive, microsoft, gallery, download, cloud storage
 Requires at least: 3.1.0
-Tested up to: 4.2
-Stable tag: 1.2.7
+Tested up to: 4.2.2
+Stable tag: 1.2.8
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -150,6 +150,9 @@ If you would not find there any error message then send this log file to our sup
 7. Configuration
 
 == Changelog ==
+
+= 1.2.8 / 19-05-2015 =
+* Security fix - updated prettyPhoto to version 3.1.6
 
 = 1.2.7 / 05-03-2015 =
 * Fixed compatibility with WP 3.1 - 3.4
